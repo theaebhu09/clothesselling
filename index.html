@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Card</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .external-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .vinted-link {
+            display: inline-block;
+            background-color: #563d7c;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .vinted-link:hover {
+            background-color: #452c64;
+        }
+
+        .external-preview {
+            margin: 40px auto;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .external-preview iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">New Items</a></li>
+                <li><a href="#shipping">Shipping & Return</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+
+        <h1>CLOTHS ITEMS</h1>
+        <h2>Featured Products</h2>
+    </header>
+
+    <!-- Product Slider -->
+    <section class="slider">
+        <div class="slider-container">
+            <div class="slide"><img src="tshirt.jpg" alt="T-Shirt" /></div>
+            <div class="slide"><img src="cloths1.jpg" alt="Girl Curt" /></div>
+            <div class="slide"><img src="jecket.jpg" alt="Jacket" /></div>
+        </div>
+        <button class="slider-btn prev">&#10094;</button>
+        <button class="slider-btn next">&#10095;</button>
+    </section>
+<script>
+    const sliderContainer = document.getElementById('sliderContainer');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        if (index < 0) {
+            currentIndex = slides.length - 1;
+        } else if (index >= slides.length) {
+            currentIndex = 0;
+        } else {
+            currentIndex = index;
+        }
+
+        const offset = -currentIndex * 100;
+        sliderContainer.style.transform = `translateX(${offset}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        showSlide(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        showSlide(currentIndex + 1);
+    });
+
+    // Optional: Auto slide every 5 seconds
+    // setInterval(() => {
+    //     showSlide(currentIndex + 1);
+    // }, 5000);
+
+    showSlide(currentIndex); // Show the first slide on load
+</script>
+
+
+
+    <hr />
+
+    <!-- Product Listings -->
+    <section class="products">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="tshirt.jpg" alt="T-Shirt" />
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Stylish T-Shirt</h3>
+                <p class="product-price">$25.00</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="cloths1.jpg" alt="Girl Curt" />
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Stylish Girl Curt</h3>
+                <p class="product-price">$25.00</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="jecket.jpg" alt="Jacket" />
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Stylish Jacket</h3>
+                <p class="product-price">$25.00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart -->
+    <main>
+        <section class="cart-items">
+            <h2>Items in Your Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Stylish T-Shirt</td>
+                        <td>$25.00</td>
+                        <td>1</td>
+                        <td>$25.00</td>
+                        <td><button>Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td>Stylish Girl Curt</td>
+                        <td>$30.00</td>
+                        <td>2</td>
+                        <td>$60.00</td>
+                        <td><button>Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Order Summary -->
+        <section class="cart-summary">
+            <h2>Order Summary</h2>
+            <p>Subtotal: $<span id="subtotal">85.00</span></p>
+            <p>Shipping: $<span id="shipping">5.00</span></p>
+            <p>Total: $<span id="total">90.00</span></p>
+            <button class="checkout-button">Proceed to Checkout</button>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <section id="shipping">
+    <h2>Shipping & Return</h2>
+    <p>We offer fast shipping and hassle-free returns within 30 days.</p>
+</section>
+ <br>
+<section id="about">
+    <h2>About</h2>
+    <p>We are passionate about providing high-quality clothing at affordable prices.</p>
+</section>
+</body>
+</html>

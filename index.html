@@ -62,16 +62,17 @@
         <h2>Featured Products</h2>
     </header>
 
-    <!-- Product Slider -->
-    <section class="slider">
-        <div class="slider-container">
-            <div class="slide"><img src="tshirt.jpg" alt="T-Shirt" /></div>
-            <div class="slide"><img src="cloths1.jpg" alt="Girl Curt" /></div>
-            <div class="slide"><img src="jecket.jpg" alt="Jacket" /></div>
-        </div>
-        <button class="slider-btn prev">&#10094;</button>
-        <button class="slider-btn next">&#10095;</button>
-    </section>
+   <!-- Product Slider -->
+<section class="slider">
+    <div class="slider-container" id="sliderContainer">
+        <div class="slide"><img src="tshirt.jpg" alt="T-Shirt" /></div>
+        <div class="slide"><img src="cloths1.jpg" alt="Girl Curt" /></div>
+        <div class="slide"><img src="jecket.jpg" alt="Jacket" /></div>
+    </div>
+    <button class="slider-btn prev" id="prevBtn">&#10094;</button>
+    <button class="slider-btn next" id="nextBtn">&#10095;</button>
+</section>
+
 <script>
     const sliderContainer = document.getElementById('sliderContainer');
     const slides = document.querySelectorAll('.slide');
